@@ -1,0 +1,4 @@
+Zadanie 1.3. Ustalic naturalna k_max. Wczytac k nalezy do { 1 , 2 , ... , k max } oraz rózne wezly x1,x2,...,x_n gdzie 
+n = 3k. Nastepnie wczytac dwa komplety wartosci A1, A2, ... , A_n i B1, B2, ..., B_k. Wyznaczyc w postaci Newtona wielomian
+interpolacyjny Hermite'a W = W(x) stopnia co najwyzej ( 4k - 1 ) spelniajacy warunki: W(x_i) = A_i dla i = 1,2,...,n oraz
+W'(x_3i) = B_i dla i = 1,2,...,k. Wynik przedstawic równiez w postaci ogólnej.
