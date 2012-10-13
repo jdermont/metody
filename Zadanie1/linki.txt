@@ -1,0 +1,6 @@
+http://pl.wikipedia.org/wiki/Interpolacja_wielomianowa - ogolna metoda
+http://wazniak.mimuw.edu.pl/index.php?title=MN09
+
+-- na potem --
+http://www.hope.art.pl/projekty/moje/mn/dokumentacja.pdf
+http://www.hope.art.pl/projekty/moje/mn/hermite.tar.bz2
