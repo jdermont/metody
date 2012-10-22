@@ -15,9 +15,9 @@ int main()
     } while (k > KMAX);
 
     int n = 3*k;
-    double *x = (double*)malloc(n*sizeof(double));
-    double *A = (double*)malloc(n*sizeof(double));
-    double *B = (double*)malloc(k*sizeof(double));
+    double *x = new double[n];
+    double *A = new double[n];
+    double *B = new double[k];
 
     for (int i=0;i<n;i++) {
         cout << "Podaj x" << i+1 << ": "; cin >> x[i];
@@ -35,6 +35,10 @@ int main()
         cout << "f(x" << i+1 << ") = " << A[i] << endl;
         if ((i+1)%3 == 0) cout << "f'(x" << i+1 << ") = " << B[i/3] << endl;
     }
+
+    delete(x);
+    delete(A);
+    delete(B);
 
     return 0;
 }
