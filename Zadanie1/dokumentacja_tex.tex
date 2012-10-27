@@ -1,0 +1,97 @@
+%& --translate-file=cp1250pl
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=1.25in,right=1.25in,top=1.25in,bottom=1.25in,dvips]{geometry}
+
+
+\usepackage{polski}
+\usepackage[OT4]{fontenc}
+\usepackage{amsthm,amsmath,amsfonts,amssymb}
+
+\usepackage{verbatim}
+
+\usepackage{color}
+\usepackage{alltt}
+\usepackage{enumerate}
+\usepackage{url}
+
+\author{Marcin Horoszko, Rados³aw G³ombiowski, Jacek Dermont}
+\title{Dokumentacja do zadania 1.3}
+
+\newtheorem{tw}{Twierdzenie}[section]
+\theoremstyle{definition}
+\newtheorem{defi}[tw]{}
+
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\hlesc}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\hldstr}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\hlslc}[1]{\textcolor[rgb]{0.4,0.4,0.4}{\it{#1}}}
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.4,0.4,0.4}{\it{#1}}}
+\newcommand{\hldir}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
+\newcommand{\hlsym}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
+\newcommand{\hlline}[1]{\textcolor[rgb]{0.53,0.53,0.53}{#1}}
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0,0,0}{{\it{#1}}}}
+\definecolor{bgcolor}{rgb}{1,1,1}
+
+\begin{document}
+
+\maketitle
+
+\section{Zadanie 1.3}
+Ustaliæ naturaln¹ k$_{max}$. Wczytaæ k $\varepsilon$ \{1,2,...,k$_{max}$\} oraz ró¿ne wêz³y $x_1,x_2,...,x_n$ gdzie
+n = 3k. Nastêpnie wczytaæ 2 komplety wartoœci $A_1,A_2,...,A_n$ i $B_1,B_2,...,B_k$. Wyznaczyæ w postaci Newtona wielomian
+interpolacyjny Hermite'a $W$ = $W(x)$ stopnia co najwy¿ej (4k - 1) spe³niaj¹cy warunki: $W(x_i)$ = $A_i$ dla i = 1,2,...,n oraz
+$W'(x_{3i})$ = $B_i$ dla i = 1,2,...,k. Wynik przedstawiæ równie¿ w postaci ogólnej.
+
+\section{Podstawowe pojêcia}
+\begin{defi}[Wielomian interpolacyjny Hermite'a funkcji $f$]
+Wielomian $W$ stopnia co najwy¿ej $n$, nazywamy wielomianem interpolacyjnym Hermite'a funkcji $f$,
+jeœli w ka¿dym $n$--krotnym wêŸle $x_k$ spe³nia równania:
+$$W(x_k) = f(x_k),\ W'(x_k) = f'(x_k),\ \ldots\ ,\  W^{(n-1)}(x_k)=f^{(n-1)}(x_k).$$
+\end{defi}
+\vspace{0.1cm}
+\begin{defi}[ró¿nica dzielona]
+Dla parami ró¿nych liczb $x_0,\ldots,x_n$ {\bf ró¿nice dzielone} funkcji $f$ s¹ okreœlone
+w nastêpuj¹cy sposób:
+$$f[x_i] = f(x_i),$$
+$$f[x_i,\ldots,x_i+k] = \frac{f[x_i,\ldots,x_{i+k-1}]-f[x_{i+1},\ldots,x_{i+k}]}{x_i - x_{i+k}}$$
+\end{defi}
+\vspace{0.1cm}
+%\begin{defi}
+%Ró¿nica dzielona rzêdu $k$ w $(k+1)$--krotnym wêŸle okreœlona jest wzorem:
+%$$f[\underbrace{x_i,\ldots,x_i}_{k+1}] = \frac{f^{(k)}(x_i)}{k!}.$$
+%\end{defi}
+
+Korzystaj¹c z powy¿szych wzorów, mo¿emy wyliczyæ ró¿nicê dzielon¹ dla dowolnych $x_0,\ldots,x_n$.
+
+\section{Metoda numeryczna}
+Posiadaj¹c wez³y $x_1,x_2,...,x_n$, komplety wartoœci $A_1,A_2,...,A_n$ i $B_1,B_2,...,B_k$, mo¿emy wyznaczyæ wielomian interpolacyjny
+Hermite'a w postacji Newtona. 
+\begin{itemize}
+\item tworzymy tablicê ró¿nic dzielonych o wielkoœci n+k (co trzeci wêze³ bêdzie siê powtarza³)
+\item dla powtarzaj¹cych siê wez³ów, ró¿nica dzielona wyjdzie $\frac00$; wtedy zastêpujemy j¹ przez $W'(x_{3i})$=$B_i$
+\item pierwszy wiersz bêdzie zawieraæ wspó³czynniki dla wielomianu interpolacyjnego; oznaczmy przez $a_0,...,a_{n-1}$
+\item wielomian (w postaci Newtona) otrzymamy zgodnie ze wzorem: \\* $W(x)$ = $a_0 + a_1(x-x_1) + ... + a_{n-1}(x-x_n)$
+\end{itemize}
+
+\section{Opis programu}
+Wejœcie
+\begin{itemize}
+\item liczba ca³kowita k, w przedziale $1,...,k_{max}$
+\item n (n=3k) liczb typu double, $\textbf{x}$, niepowtarzaj¹cych siê,
+\item n (n=3k) liczb typu double, $\textbf{A}$,
+\item k liczb typu double, $\textbf{B}$,
+\end{itemize}
+\bigskip
+Wyjœcie
+\begin{itemize}
+\item wspó³czynniki dla wielomianu interpolacyjnego,
+\item wydruk wielomianu w postaci Newtona,
+\item wydruk wielomianu w postaci ogólnej,
+\end{itemize}
+
+\end{document}
