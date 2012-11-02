@@ -8,7 +8,14 @@
 
 using namespace std;
 
-
+// pomocnicza do postaci newtona
+// sprawdza czy dalsze wspolczynniki to zera
+bool same_zera(double *wsp,int teraz,int rozmiar) {
+    for (int i=teraz;i<rozmiar;i++) {
+        if (wsp[i] != 0.0) return false;
+    }
+    return true;
+}
 
 int main()
 {
@@ -73,27 +80,40 @@ int main()
     cout.precision(3);
 
     for (int i= 0;i<ROZ;i++) {
-        cout << "x" << i+1 << " ";
         for (int j=0;j<ROZ;j++) {
             cout << tablica[i][j] << " ";
         }
         cout << endl;
     }
 
-    // postac newtona, szkic
-    // TODO
+    // postac newtona, gotowa
+    // TODO: sprawdzic
     cout << "W(x) = ";
     for (int i=0;i<ROZ;i++) {
         if (wsp[i] == 0.0f) continue;
-        cout << wsp[i];
+        if (i == 0) {
+            cout << wsp[i];
+        } else {
+            if (wsp[i] > 1.0f || wsp[i] < 1.0f) {
+                if (i>0 && wsp[i] < 0.0f) cout << -1*wsp[i];
+                else cout << wsp[i];
+            }
+        }
         for (int j=0;j<i;j++) {
             if ((j+1)%4 == 0) {
                 cout << "^2";
             } else {
-                cout << "(x-" << x[j] << ")";
+                if (x[j] < 0.0f) cout << "(x+" << -1*x[j] << ")";
+                else if (x[j] == 0.0f) cout << "x";
+                else cout << "(x-" << x[j] << ")";
             }
         }
-        if (i+1 < ROZ) cout << " + ";
+        if (i+1 < ROZ) {
+            if (!same_zera(wsp,i+1,ROZ)) {
+                if (wsp[i+1] > 0.0f) cout << " + ";
+                else cout << " - ";
+            }
+        }
     }
     cout << endl;
 
