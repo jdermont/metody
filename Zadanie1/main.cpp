@@ -170,27 +170,30 @@ int main()
 	
 	// wypisanie postaci ogolnej ( pierwszy wiersz jest wynikiem )
 	cout << "W(x) = ";
-	
-	int farestNonZeroIndex = 0;
-	
-	for( int i = ROZ - 1 ; i > 0 ; i-- )
-	{
-		if( tablicaOgolna[0][i] != 0 )
-		{
-			farestNonZeroIndex = i;
-			break;
-		}
-	}
+
+	int firstExp = 1;
 	
 	for( int i = 0 ; i < ROZ ; i++ )
 	{
 		if( tablicaOgolna[0][i] != 0 )
 		{
-			if( !(i > 0 && tablicaOgolna[0][i] == 1) ){ cout << tablicaOgolna[0][i]; }
+			if( !(i > 0 && tablicaOgolna[0][i] == 1) )
+			{ 
+				if( firstExp == 1 ){ cout << tablicaOgolna[0][i]; firstExp = 0; }
+				else
+				{
+					if( tablicaOgolna[0][i] < 0 )
+					{ 
+						cout << " - " << tablicaOgolna[0][i] * -1;
+					}
+					else
+					{
+						cout << " + " << tablicaOgolna[0][i];
+					}
+				}
+			}
 			if( i == 1 ){ cout << "x"; }
 			else if( i > 1 ){ cout << "x^" << i; }
-			
-			if( farestNonZeroIndex != i ){	cout << " + "; }
 		}
 	}
 	
