@@ -13,29 +13,19 @@
 \usepackage{alltt}
 \usepackage{enumerate}
 \usepackage{url}
+\usepackage{listings}
+\lstset{language=C++,
+tabsize=1,
+basicstyle=\ttfamily\footnotesize,
+frame=shadowbox,
+breaklines=true}
 
 \author{Marcin Horoszko, Rados³aw G³ombiowski, Jacek Dermont}
 \title{Dokumentacja do zadania 1.3}
 
-\newtheorem{tw}{Twierdzenie}[section]
+\newtheorem{tw}{Czêœæ}[section]
 \theoremstyle{definition}
 \newtheorem{defi}[tw]{}
-
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0,0,0}{#1}}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0,0,0}{#1}}
-\newcommand{\hlesc}[1]{\textcolor[rgb]{0,0,0}{#1}}
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0,0,0}{#1}}
-\newcommand{\hldstr}[1]{\textcolor[rgb]{0,0,0}{#1}}
-\newcommand{\hlslc}[1]{\textcolor[rgb]{0.4,0.4,0.4}{\it{#1}}}
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.4,0.4,0.4}{\it{#1}}}
-\newcommand{\hldir}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
-\newcommand{\hlsym}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
-\newcommand{\hlline}[1]{\textcolor[rgb]{0.53,0.53,0.53}{#1}}
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0,0,0}{{\it{#1}}}}
-\definecolor{bgcolor}{rgb}{1,1,1}
 
 \begin{document}
 
@@ -61,10 +51,6 @@ $$f[x_i] = f(x_i),$$
 $$f[x_i,\ldots,x_i+k] = \frac{f[x_i,\ldots,x_{i+k-1}]-f[x_{i+1},\ldots,x_{i+k}]}{x_i - x_{i+k}}$$
 \end{defi}
 \vspace{0.1cm}
-%\begin{defi}
-%Ró¿nica dzielona rzêdu $k$ w $(k+1)$--krotnym wêŸle okreœlona jest wzorem:
-%$$f[\underbrace{x_i,\ldots,x_i}_{k+1}] = \frac{f^{(k)}(x_i)}{k!}.$$
-%\end{defi}
 
 Korzystaj¹c z powy¿szych wzorów, mo¿emy wyliczyæ ró¿nicê dzielon¹ dla dowolnych $x_0,\ldots,x_n$.
 
@@ -76,22 +62,38 @@ Hermite'a w postacji Newtona.
 \item dla powtarzaj¹cych siê wez³ów, ró¿nica dzielona wyjdzie $\frac00$; wtedy zastêpujemy j¹ przez $W'(x_{3i})$=$B_i$
 \item pierwszy wiersz bêdzie zawieraæ wspó³czynniki dla wielomianu interpolacyjnego; oznaczmy przez $a_0,...,a_{n-1}$
 \item wielomian (w postaci Newtona) otrzymamy zgodnie ze wzorem: \\* $W(x)$ = $a_0 + a_1(x-x_1) + ... + a_{n-1}(x-x_n)$
+\item wymna¿amy wielomian w postaci Newtona i otrzymujemy wielomian w postaci ogólnej
 \end{itemize}
 
 \section{Opis programu}
+Program zosta³ w ca³oœci napisany w jêzyku $C++.$
+\\\\
 Wejœcie
 \begin{itemize}
-\item liczba ca³kowita k, w przedziale $1,...,k_{max}$
-\item n (n=3k) liczb typu double, $\textbf{x}$, niepowtarzaj¹cych siê,
-\item n (n=3k) liczb typu double, $\textbf{A}$,
-\item k liczb typu double, $\textbf{B}$,
+\item liczba ca³kowita k, w przedziale $1,...,k_{max}$ ($k_{max}$ ustalone, wynosi 5)
+\item n (n=3k) liczb typu double, $\textbf{x}$, niepowtarzaj¹cych siê
+\item n (n=3k) liczb typu double, $\textbf{A}$
+\item k liczb typu double, $\textbf{B}$
 \end{itemize}
 \bigskip
 Wyjœcie
 \begin{itemize}
-\item wspó³czynniki dla wielomianu interpolacyjnego,
-\item wydruk wielomianu w postaci Newtona,
-\item wydruk wielomianu w postaci ogólnej,
+%\item wspó³czynniki dla wielomianu interpolacyjnego,
+\item wydruk wielomianu interpolacyjnego Hermite'a w postaci Newtona
+\item wydruk wielomianu interpolacyjnego Hermite'a w postaci ogólnej
+\end{itemize}
+\bigskip
+Struktura programu
+\begin{itemize}
+\item $main.cpp$ - g³ówna czêœæ programu, pobiera dane od u¿ytkownika, wywo³uje funkcje licz¹ce wspó³czynniki
+do wielomianów i generuje wyjœcie w postaci tych¿e wielomianów
+\item $tablica.cpp$ - zawiera funkcje wyliczaj¹ce wspó³czynniki wielomianu interpolacyjnego Hermite'a
+\item $drukuj.cpp$ - zawiera funkcje drukuj¹ce wielomiany
 \end{itemize}
 
+\section{Funkcje programu}
+$tablica.cpp$ \\
+G³ówna czêœæ roznice\_dzielone:
+\lstinputlisting{tablica.cpp}
+Funkcja ta zawiera trzy pêtle for. 
 \end{document}
