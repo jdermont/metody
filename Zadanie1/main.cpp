@@ -117,6 +117,98 @@ int main()
     }
     cout << endl;
 
+	// POCZATEK POSTACI OGOLNEJ ( Last Update: Marcin Horoszko @12:43 3.11.2012 )
+	
+	// x maksymalnie 7 stopnia ( i = ROZ )
+	// ROZ rozwiniec ( j = ROZ )
+	// potem sumujemy kolumny
+	// pierwsza jest wynikiem
+	double tablicaOgolna[ROZ][ROZ];
+	
+	// tworzymy tablice startowa ( 1 kolumna to wspolczynniki, na koncu to beda wartosci przy danym stopniu )
+	for( int i = 0 ; i < ROZ ; i++ )
+	{
+		for( int j = 0 ; j < ROZ ; j++ )
+		{
+			if( j == 0 ){ tablicaOgolna[i][j] = tablica[0][i]; }
+			else{ tablicaOgolna[i][j] = 0; }
+		}
+	}
+	
+	// tworzymy tablice x'ow ( do mnozenia ) ( miejsc zerowych )
+	double xValues[ROZ];
+	
+	for( int i = 0 ; i < ROZ ; i++ )
+	{
+		if( i == 0 ){ xValues[i] = 0; }
+		
+		if( i % 4 == 0 ){ xValues[i] = i == 0 ? 0 : x[i-2]; }
+		else{ xValues[i] = x[i-1]; }
+	}
+	
+	// liczymy kazdy wiersz ( dzialanie mnozenia wszystkich stopni )
+	for( int i = 0 ; i < ROZ ; i++ )
+	{
+		// dla mnozenia ( 1 ) bedzie 0 iteracji, dla mnozenia ( 1 * (x-1) ) 1 iteracja, itp itd.
+		for( int j = 0 ; j < i ; j++ )
+		{
+			// zapisanie aktualnej tablicy przed przesuwaniem by potem od tego mnozyc
+			double currentOriginalTab[ROZ];
+			for( int oT = 0 ; oT < ROZ; oT++ ){ currentOriginalTab[oT] = tablicaOgolna[i][oT]; }
+			
+			// przesuwamy wiersz glownej tablicy w prawo 
+			for( int pT = ROZ - 1 ; pT > 0 ; pT-- )
+			{
+				tablicaOgolna[i][pT] = tablicaOgolna[i][pT-1];
+			}
+			tablicaOgolna[i][0] = 0;
+			
+			// mnozymy oryginalna tablice przez xValues i dodajemy do glownej
+			for( int mT = 0 ; mT < ROZ ; mT++ )
+			{
+				tablicaOgolna[i][mT] = tablicaOgolna[i][mT] + ( currentOriginalTab[mT] * ( -1 * xValues[j+1] ) );
+			}
+		}
+	}
+	
+	// zsumowanie kazdej kolumny
+	for( int i = ROZ - 1 ; i > 0 ; i-- )
+	{
+		for( int j = 0 ; j < ROZ ; j++ )
+		{
+			tablicaOgolna[0][j] += tablicaOgolna[i][j];
+		}
+	}
+	
+	// wypisanie postaci ogolnej ( pierwszy wiersz jest wynikiem )
+	cout << "W(x) = ";
+	
+	int farestNonZeroIndex = 0;
+	
+	for( int i = ROZ - 1 ; i > 0 ; i-- )
+	{
+		if( tablicaOgolna[0][i] != 0 )
+		{
+			farestNonZeroIndex = i;
+			break;
+		}
+	}
+	
+	for( int i = 0 ; i < ROZ ; i++ )
+	{
+		if( tablicaOgolna[0][i] != 0 )
+		{
+			cout << tablicaOgolna[0][i];
+			if( i == 1 ){ cout << "x"; }
+			else if( i > 1 ){ cout << "x^" << i; }
+			
+			if( farestNonZeroIndex != i ){	cout << " + "; }
+		}
+	}
+	
+	cout << endl;
+	// KONIEC POSTACI OGOLNEJ
+
     // czyszczenie pamieci, opcjonalne ale program wyglada profesjonalnie
     for (int i=0;i<ROZ;i++) delete [] tablica[i];
     delete [] tablica;
