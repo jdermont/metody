@@ -75,19 +75,7 @@ int main()
     double **tablica = roznice_dzielone(x,A,B,ROZ);
     double *wsp = wspolczynniki(tablica,ROZ);
 
-    // drukowanie tablicy
-    // TODO: usunac
-    cout.precision(3);
-
-    for (int i= 0;i<ROZ;i++) {
-        for (int j=0;j<ROZ;j++) {
-            cout << tablica[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    // postac newtona, gotowa
-    // TODO: sprawdzic
+    // postac newtona
     cout << "W(x) = ";
     for (int i=0;i<ROZ;i++) {
         if (wsp[i] == 0.0f) continue;
@@ -198,7 +186,7 @@ int main()
 	{
 		if( tablicaOgolna[0][i] != 0 )
 		{
-			cout << tablicaOgolna[0][i];
+			if( !(i > 0 && tablicaOgolna[0][i] == 1) ){ cout << tablicaOgolna[0][i]; }
 			if( i == 1 ){ cout << "x"; }
 			else if( i > 1 ){ cout << "x^" << i; }
 			
