@@ -130,7 +130,7 @@ Czêœæ odwo³uj¹ca siê do wczeœniej omówionych funkcji drukuj¹cych.
 \lstinputlisting{example3.txt}
 \lstset{title=Przyk³ad 4}
 \lstinputlisting{example4.txt}
-\ \\ \ \\ \\ \
+\ \\ \ \\ \
 \lstset{title=Przyk³ad 5}
 \lstinputlisting{example5.txt}
 \end{document}

@@ -1,0 +1,34 @@
+Podaj k z zakresu 1..5
+Podaj k: 3
+Podaj rozne wezly x.
+Podaj x1: -1
+Podaj x2: 0
+Podaj x3: 1
+Podaj x4: -1
+Podaj inny x.
+Podaj x4: 2
+Podaj x5: 3
+Podaj x6: 4
+Podaj x7: 5
+Podaj x8: 6
+Podaj x9: 7
+Podaj komplet wartosci A.
+Podaj A1: -1
+Podaj A2: 2
+Podaj A3: 3
+Podaj A4: 7
+Podaj A5: 10
+Podaj A6: 7
+Podaj A7: 4
+Podaj A8: 2
+Podaj A9: 0
+Podaj komplet wartosci B.
+Podaj B1: 0
+Podaj B2: 5
+Podaj B3: 8
+
+Wielomian interpolacyjny w postaci Newtona:
+W(x) = -1 + 3(x+1) - 1(x+1)x - 0.833(x+1)x(x-1)^2 - 0.604(x+1)x(x-1)^2(x-2) + 0.224(x+1)x(x-1)^2(x-2)(x-3) - 0.0431(x+1)x(x-1)^2(x-2)(x-3)(x-4) - 0.0114(x+1)x(x-1)^2(x-2)(x-3)(x-4)^2 + 0.0105(x+1)x(x-1)^2(x-2)(x-3)(x-4)^2(x-5) - 0.00393(x+1)x(x-1)^2(x-2)(x-3)(x-4)^2(x-5)(x-6) + 0.00137(x+1)x(x-1)^2(x-2)(x-3)(x-4)^2(x-5)(x-6)(x-7)
+
+Wielomian interpolacyjny w postaci ogolnej:
+W(x) = 0.00137x^11 - 0.0477x^10 + 0.702x^9 - 5.63x^8 + 26.6x^7 - 73.5x^6 + 106x^5 - 38x^4 - 92.7x^3 + 116x^2 - 38.7x + 2

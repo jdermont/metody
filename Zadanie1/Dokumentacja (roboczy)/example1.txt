@@ -1,0 +1,18 @@
+Podaj k z zakresu 1..5
+Podaj k: 1
+Podaj rozne wezly x.
+Podaj x1: 1
+Podaj x2: 2
+Podaj x3: 3
+Podaj komplet wartosci A.
+Podaj A1: 2
+Podaj A2: 2
+Podaj A3: 2
+Podaj komplet wartosci B.
+Podaj B1: 0
+
+Wielomian interpolacyjny w postaci Newtona:
+W(x) = 2
+
+Wielomian interpolacyjny w postaci ogolnej:
+W(x) = 2

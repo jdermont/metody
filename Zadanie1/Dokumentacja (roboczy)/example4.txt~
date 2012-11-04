@@ -1,0 +1,43 @@
+Podaj k z zakresu 1..5
+Podaj k: 4
+Podaj rozne wezly x.
+Podaj x1: -3
+Podaj x2: -2
+Podaj x3: -1
+Podaj x4: -1
+Podaj inny x.
+Podaj x4: 0
+Podaj x5: 1
+Podaj x6: 2
+Podaj x7: 3
+Podaj x8: 4
+Podaj x9: 5
+Podaj x10: 6
+Podaj x11: 5
+Podaj inny x.
+Podaj x11: 7
+Podaj x12: 8
+Podaj komplet wartosci A.
+Podaj A1: -35
+Podaj A2: -11
+Podaj A3: -1
+Podaj A4: 1   
+Podaj A5: 1
+Podaj A6: 5
+Podaj A7: 19
+Podaj A8: 49
+Podaj A9: 101
+Podaj A10: 181
+Podaj A11: 295
+Podaj A12: 449
+Podaj komplet wartosci B.
+Podaj B1: 5
+Podaj B2: 8
+Podaj B3: 65
+Podaj B4: 176
+
+Wielomian interpolacyjny w postaci Newtona:
+W(x) = -35 + 24(x+3) - 7(x+3)(x+2) + (x+3)(x+2)(x+1)
+
+Wielomian interpolacyjny w postaci ogolnej:
+W(x) = x^3 - x^2 + 1
