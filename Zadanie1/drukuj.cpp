@@ -1,9 +1,10 @@
 #include "drukuj.h"
+
 #include <iostream>
 
 using namespace std;
 
-// funkcja pomocnicza
+// pomocnicza do postaci newtona
 // sprawdza czy dalsze wspolczynniki to zera
 bool same_zera(double *wsp,int teraz,int rozmiar) {
     for (int i=teraz;i<rozmiar;i++) {
@@ -133,12 +134,11 @@ void drukuj_ogolna(double **tablica,double *x,int rozmiar) {
 			    else
 			    {
 			        if (tablicaOgolna[0][i] != -1 && tablicaOgolna[0][i] != 1) cout << tablicaOgolna[0][i];
-			        //cout << tablicaOgolna[0][i];
-
 			    }
 			}
 			if( i == 1 ){ if (tablicaOgolna[0][i]==-1) cout << "-x"; else cout << "x"; }
 			else if( i > 1 ){ if (tablicaOgolna[0][i]==-1) cout << "-x^"; else cout << "x^"; cout << i; }
+			if (i == 0 && (tablicaOgolna[0][i] == -1 || tablicaOgolna[0][i] == 1)) cout << 1;
 		} else if (firstExp == 1) {
             firstExp = 0;
             if (same_zera(tablicaOgolna[0],0,rozmiar)) cout << "0";
