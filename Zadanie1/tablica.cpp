@@ -1,6 +1,5 @@
 #include "tablica.h"
 
-// TODO: dodac komentarz
 double **roznice_dzielone(double *x, double *A, double *B, int rozmiar) {
     double **tablica = 0;
     tablica = new double*[rozmiar];
@@ -26,7 +25,6 @@ double **roznice_dzielone(double *x, double *A, double *B, int rozmiar) {
         tablica[i][1] = licznik/mianownik;
     }
 
-
     for (int i=2;i<rozmiar;i++) {
         int z = i;
         for (int j=0;j<rozmiar-i;j++) {
@@ -37,11 +35,9 @@ double **roznice_dzielone(double *x, double *A, double *B, int rozmiar) {
         }
     }
 
-
     return tablica;
 }
 
-// TODO: dodac komentarz
 double *wspolczynniki(double **tablica,int rozmiar) {
     double *wsp = new double[rozmiar];
 
