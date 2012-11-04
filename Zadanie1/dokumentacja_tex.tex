@@ -18,7 +18,8 @@
 tabsize=1,
 basicstyle=\ttfamily\footnotesize,
 frame=shadowbox,
-breaklines=true}
+breaklines=true,
+showstringspaces=false}
 
 \author{Marcin Horoszko, Rados³aw G³ombiowski, Jacek Dermont}
 \title{Dokumentacja do zadania 1.3}
@@ -95,5 +96,28 @@ do wielomianów i generuje wyjœcie w postaci tych¿e wielomianów
 $tablica.cpp$ \\
 G³ówna czêœæ roznice\_dzielone:
 \lstinputlisting{tablica.cpp}
-Funkcja ta zawiera trzy pêtle for. 
+Funkcja ta zawiera trzy pêtle for. Pierwsza s³u¿y do wype³nienia pierwszej kolumnej kompletem wartoœci A. Drug¹ pêtla wype³nia drug¹ kolumnê
+ju¿ za pomoc¹ wzoru na ró¿nice dzielone, przy czym wynik $\frac00$ zastêpuje poprzez odpowiedni element B. Trzecia pêtla wype³nia resztê
+kolumn zgodnie ze wzorem na ró¿nice dzielone.\\ 
+$tablica.cpp$ zawiera równie¿ funkcjê $wspolczynniki$, która kopiuje z tablicy pierwszy wiersz i go zwraca. \\ \\
+$drukuj.cpp$ \\
+Funkcja drukuj\_newton:
+\lstinputlisting{drukuj_newton.cpp}
+Funkcja przyjmuje wspó³czynniki, tablicê x i rozmiar jako argumenty i drukuje wielomian iterpolacyjny Hermite'a w postaci Newtona. Odwo³uje siê
+do funkcji pomocniczej $same\_zera$, która to sprawdza czy dalsze wspó³czynniki s¹ niezerowe (dziêki temu nie ma niepotrzebnego plusa na koñcu). \\ \\
+Najwa¿niejsza czêœæ drukuj\_ogolna:
+\lstinputlisting{drukuj_ogolna.cpp}
+Podobnie jak drukuj\_newton, drukuj\_ogolna przyjmuje tablicê ró¿nic dzielonych, tablicê x i rozmiar jako argumenty. Za pomoc¹ odpowiednich pêtli funkcja
+ta wymna¿a wspó³czynniki i x'y, sumuje je i drukuje wielomian interpolacyjny Hermite'a w postaci ogólnej. Ta funkcja tak¿e odwo³uje siê do $same\_zera$. \\ \\
+$main.cpp$ \\
+Podstawa programu, inicjalizuje zmienne, pobiera dane od u¿ytkownika, odwo³uje siê do innych funkcji i odwo³uje siê funkcji wypisuj¹cych wyjœcie na ekran.
+Na koñcu czyœci niepotrzebn¹ pamiêæ. \\
+Czêœæ odpowiedzialna za pobieranie danych od u¿ytkownika.
+\lstinputlisting{main1.cpp}
+U¿ytkownik kolejno podaje k z zakresu 1..KMAX (5), n (n=3k) \textbf{ró¿nych} wêz³ów x, n wartoœci A i k wartoœci B. Za to odpowiedzialne s¹ kolejne pêtle for. Mimo, ¿e tablica wêz³ów x
+i tablica wartoœci A s¹ wielkoœci 4k, u¿ytkownik podaje tylko n (n=3k) danych. W tych pêtlach co trzeci element automatycznie siê powtarza. \\ \\
+Czêœæ odwo³uj¹ca siê do wczeœniej omówionych funkcji drukuj¹cych.
+\lstinputlisting{main2.cpp}
+
+\section{Przyk³adowe uruchomienia}
 \end{document}
