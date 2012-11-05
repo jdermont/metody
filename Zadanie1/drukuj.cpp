@@ -135,6 +135,18 @@ void drukuj_ogolna(double **tablica,double *x,int rozmiar) {
 			    {
 			        if (tablicaOgolna[0][i] != -1 && tablicaOgolna[0][i] != 1) cout << tablicaOgolna[0][i];
 			    }
+			} else if (firstExp != 1) {
+			    if (firstExp != -1) {firstExp = -1;} else
+                    if( tablicaOgolna[0][i] < 0 )
+                    {
+                        cout << " - ";
+                        if (tablicaOgolna[0][i] != -1) cout << tablicaOgolna[0][i] * -1;
+                    }
+                    else
+                    {
+                        cout << " + ";
+                        if (tablicaOgolna[0][i] != 1) cout << tablicaOgolna[0][i];
+                    }
 			}
 			if( i == 1 ){ if (tablicaOgolna[0][i]==-1) cout << "-x"; else cout << "x"; }
 			else if( i > 1 ){ if (tablicaOgolna[0][i]==-1) cout << "-x^"; else cout << "x^"; cout << i; }
