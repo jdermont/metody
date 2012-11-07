@@ -1,0 +1,76 @@
+%& --translate-file=cp1250pl
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=1.25in,right=1.25in,top=1.25in,bottom=1.25in,dvips]{geometry}
+
+
+\usepackage{polski}
+\usepackage[OT4]{fontenc}
+\usepackage{amsthm,amsmath,amsfonts,amssymb}
+
+\usepackage{verbatim}
+
+\usepackage{color}
+\usepackage{alltt}
+\usepackage{enumerate}
+\usepackage{url}
+\usepackage{listings}
+\lstset{language=C++,
+tabsize=1,
+basicstyle=\ttfamily\footnotesize,
+frame=shadowbox,
+breaklines=true,
+showstringspaces=false}
+
+\author{Marcin Horoszko, Rados³aw G³ombiowski, Jacek Dermont}
+\title{Dokumentacja do zadania 2.5}
+
+\newtheorem{tw}{Czêœæ}[section]
+\theoremstyle{definition}
+\newtheorem{defi}[tw]{}
+
+\begin{document}
+
+\maketitle
+
+\section{Zadanie 2.5}
+Dla równania $f(x)$ = $0$, gdzie $f(x)$ = $lnx + x - 5$, wczytaæ a,b $\in$ $R$ takie, by 0 $<$ a $<$ b oraz $f(a)\cdot f(b)$ $<$ 0. Nastêpnie,
+dopóki ``u¿ytkownik siê nie znudzi'', wczytywaæ wartoœæ 0 $<$ $\epsilon$ $<$ 1 i metod¹ po³owienia na $[$a,b$]$ przybli¿yæ z dok³adnoœci¹ $\epsilon$
+rozwi¹zanie tego równania. Rozwi¹zanie to przybli¿yæ równie¿ metod¹ Newtona z $x_0$ = a, przy czym $x_k$ bêdzie dobrym przybli¿eniem, gdy 
+$|x_k-x_{k-1}|\leqslant\epsilon$. Porównaæ iloœæ kroków wykonanych metod¹ po³owienia i metod¹ Newtona.
+
+\section{Podstawowe pojêcia}
+\begin{defi}[Metoda po³owienia (równego podzia³u, bisekcji)]
+Jedna z metod rozwi¹zywania równañ nieliniowych. Opiera siê ona na twierdzeniu Bolzano-Cauchy'ego: \emph{Je¿eli funkcja ci¹g³a $f(x)$ ma na koñcach przedzia³u
+domkniêtego wartoœci ró¿nych znaków, to wewn¹trz tego przedzia³u, istnieje co najmniej jeden pierwiastek równania $f(x)=0$.}
+\end{defi}
+\begin{defi}[Metoda Newtona (metoda stycznych)]
+Iteracyjny algorytm wyznaczania przybli¿onej wartoœci pierwiastka funkcji. Mo¿na j¹ zastosowaæ, gdy w przedziale $[a,b]$ funkcja jest ci¹g³a, $f(a)\cdot f(b)$ $<$ 0
+oraz pierwsza i druga pochodna funkcji maj¹ sta³y znak na tym przedziale.
+\end{defi}
+
+\section{Metoda numeryczna}
+Posiadaj¹c a, b (0$<$a$<$b i $f(a)\cdot f(b)$ $<$0) oraz $\epsilon$ (0$<\epsilon<$1) mo¿emy przybli¿yæ wartoœæ pierwiastka $f(x)$ = $lnx + x - 5$ powy¿szymi
+metodami.\\
+Dla metody po³owienia:
+\begin{itemize}
+\item tworzymy pêtlê \textbf{while}, której warunkiem dzia³ania jest $|a-b|>\epsilon$:
+\begin{itemize}
+\item c = $\frac{a+b}{2}$
+\item jeœli $f(a)\cdot f(c)$ $<$ $0$, to b = c
+\item w przeciwnym przypadku a = c
+\end{itemize}
+\item zmienna $a$ jak i zmienna $b$ s¹ zadanymi przybli¿eniami
+\end{itemize}
+Dla metody Newtona:
+\begin{itemize}
+\item definiujemy pochodn¹ $f'(x)$ = $\frac{1}{x}+1$
+\item $x_0$ = a
+\item tworzymy nie koñcz¹c¹ siê pêtlê \textbf{while}:
+\begin{itemize}
+\item $x_1$ = $x_0-\frac{f(x_0)}{f'(x_0)}$
+\item jeœli $|x_0-x_1|\leqslant\epsilon$, to przerywamy \textbf{pêtlê}
+\item $x_0$ = $x_1$
+\end{itemize}
+\item zmienna $x_1$ bêdzie naszym szukanym przybli¿eniem
+\end{itemize}
+\end{document}
