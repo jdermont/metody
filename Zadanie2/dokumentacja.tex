@@ -41,36 +41,56 @@ $|x_k-x_{k-1}|\leqslant\epsilon$. Porównaæ iloœæ kroków wykonanych metod¹ po³owi
 \section{Podstawowe pojêcia}
 \begin{defi}[Metoda po³owienia (równego podzia³u, bisekcji)]
 Jedna z metod rozwi¹zywania równañ nieliniowych. Opiera siê ona na twierdzeniu Bolzano-Cauchy'ego: \emph{Je¿eli funkcja ci¹g³a $f(x)$ ma na koñcach przedzia³u
-domkniêtego wartoœci ró¿nych znaków, to wewn¹trz tego przedzia³u, istnieje co najmniej jeden pierwiastek równania $f(x)=0$.}
+domkniêtego wartoœci ró¿nych znaków, to wewn¹trz tego przedzia³u, istnieje co najmniej jeden pierwiastek równania $f(x)=0$.}. Przebieg metody: \\
+Wybieramy przybli¿enie $\epsilon$ (np. $\epsilon$ = 0.001). \\
+1. Sprawdzamy czy dla $c=\frac{a+b}{2}$ $f(c)=0$. Jeœli tak, to koñczymy, a $c$ jest pierwiastkiem funkcji. \\
+2. Je¿eli nie, dzielimy przedzia³ na po³owy $[a,c] [c,b]$. Je¿eli $f(a)\cdot f(c)$ $<$ 0 to $b = c$, w przeciwnym przypadku $a = c$. \\
+3. Powtarzamy proces, dopóki odleg³oœæ miêdzy $a$ i $b$ nie bêdzie mniejsza lub równa przybli¿eniu $\epsilon$. Zarówno a i b bêd¹ pierwiastkami spe³niaj¹cymi
+zadane przybli¿enie.
 \end{defi}
-\begin{defi}[Metoda Newtona (metoda stycznych)]
+\begin{defi}[Metoda Newtona]
 Iteracyjny algorytm wyznaczania przybli¿onej wartoœci pierwiastka funkcji. Mo¿na j¹ zastosowaæ, gdy w przedziale $[a,b]$ funkcja jest ci¹g³a, $f(a)\cdot f(b)$ $<$ 0
-oraz pierwsza i druga pochodna funkcji maj¹ sta³y znak na tym przedziale.
+oraz pierwsza i druga pochodna funkcji maj¹ sta³y znak na tym przedziale. Przebieg metody: \\
+Wybieramy przybli¿enie $\epsilon$ (np. $\epsilon$ = 0.001) oraz wyliczamy pochodn¹ $f'(x)$. \\
+1. $x_0$ = $a$ \\
+2. Kolejny k-ty x wyliczamy ze wzoru: $x_{k+1}$ = $x_k$-$\frac{f(x_k)}{f'(x_k)}$. \\
+3. Powtarzamy 2. punkt dopóki $|x_{k+1} - x_k| \leqslant \epsilon$. $x_{k+1}$ jest szukanym pierwiastkiem spe³niaj¹cym zadane przybli¿enie. \\
+Przy spe³nionych za³o¿eniach b³¹d przybli¿enia maleje kwadratowo. Jednak¿e, jeœli punkt startowy jest daleko od pierwiastka, metoda Newtona mo¿e byæ rozbie¿na i w
+konsekwencji dzia³aæ w ``nieskoñczonoœæ''. W tym wypadku nale¿y siê zabepieczyæ, np. poprzez ustalenie maksymalnej iloœci iteracji.
 \end{defi}
 
 \section{Metoda numeryczna}
 Posiadaj¹c a, b (0$<$a$<$b i $f(a)\cdot f(b)$ $<$0) oraz $\epsilon$ (0$<\epsilon<$1) mo¿emy przybli¿yæ wartoœæ pierwiastka $f(x)$ = $lnx + x - 5$ powy¿szymi
 metodami.\\
-Dla metody po³owienia:
+Dla metody po³owienia$^*$:
 \begin{itemize}
+\item $i$ = 0 (iloœæ kroków)
 \item tworzymy pêtlê \textbf{while}, której warunkiem dzia³ania jest $|a-b|>\epsilon$:
 \begin{itemize}
+\item $i++$
 \item c = $\frac{a+b}{2}$
 \item jeœli $f(a)\cdot f(c)$ $<$ $0$, to b = c
 \item w przeciwnym przypadku a = c
 \end{itemize}
-\item zmienna $a$ jak i zmienna $b$ s¹ zadanymi przybli¿eniami
+\item zmienna $c$ to zadane przybli¿enie
+\item zmienna $i$ to iloœæ wykonanych kroków
 \end{itemize}
-Dla metody Newtona:
+\small $^*$ poniewa¿ dla równania w zadaniu $x$ jest niewymierne, omijamy sprawdzanie $f(c) == 0$ \\ \\
+\normalsize Dla metody Newtona:
 \begin{itemize}
 \item definiujemy pochodn¹ $f'(x)$ = $\frac{1}{x}+1$
+\item $j$ = 0 (iloœæ kroków)
 \item $x_0$ = a
 \item tworzymy nie koñcz¹c¹ siê pêtlê \textbf{while}:
 \begin{itemize}
+\item $j++$
 \item $x_1$ = $x_0-\frac{f(x_0)}{f'(x_0)}$
 \item jeœli $|x_0-x_1|\leqslant\epsilon$, to przerywamy \textbf{pêtlê}
+\item jeœli $j == 100$, to przerywamy \textbf{pêtlê}
 \item $x_0$ = $x_1$
 \end{itemize}
-\item zmienna $x_1$ bêdzie naszym szukanym przybli¿eniem
+\item jeœli $j < 100$, zmienna $x_1$ jest naszym szukanym przybli¿eniem
+\item jeœli $j == 100$, metoda Newtona jest w tym przypadku rozbie¿na; nie otrzymaliœmy za³o¿onego przybli¿enia
+\item zmienna $j$ to iloœæ wykonanych kroków
 \end{itemize}
 \end{document}
