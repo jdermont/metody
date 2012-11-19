@@ -93,4 +93,27 @@ Dla metody po³owienia$^*$:
 \item jeœli $j == 100$, metoda Newtona jest w tym przypadku rozbie¿na; nie otrzymaliœmy za³o¿onego przybli¿enia
 \item zmienna $j$ to iloœæ wykonanych kroków
 \end{itemize}
+
+\section{Opis programu}
+Program zosta³ w ca³oœci napisany w jêzyku $C.$
+\\\\
+Wejœcie
+\begin{itemize}
+\item $a$, liczba typu double, taka ¿e $a>0$; jeœli $a\leqslant 0$, to program zapyta ponownie
+\item $b$, liczba typu double, taka ¿e $b>a$; jeœli $b\leqslant a$, to program zapyta ponownie \
+jeœli $f(a)\cdot f(b)$ $<$ 0, to program ponownie zapyta o $a$ i $b$
+\item $\epsilon$, liczba typu double, taka ¿e $0<\epsilon<1$, podawana w nieskoñczonej pêtli dopóki u¿ytkownik ``siê nie znudzi'';
+ jeœli $\epsilon$ jest spoza przedzia³u $[0,1]$, program zapyta ponownie
+\end{itemize}
+\bigskip
+Wyjœcie
+\begin{itemize}
+\item $c$, liczba typu double, pierwiastek funkcji o przybli¿eniu $\epsilon$
+\item $i$, liczba ca³kowita, iloœæ kroków wykonanych za pomoc¹ metody po³owieñ
+\item $x_1$, liczba typu double, pierwiastek funkcji o przybli¿eniu $\epsilon$ $^*$
+\item $j$, liczba ca³kowita, iloœæ kroków wykonanych za pomoc¹ metody Newtona $^*$
+\end{itemize}
+\small $^*$ jeœli $j == 100$ to $x_1$ nie jest pierwiastkiem, bo metoda Newtona sta³a siê rozbie¿na \ \\ \\
+\normalsize
+Program sk³ada siê tylko z jednego pliku $main.cpp$. Zawiera wszystkie potrzebne funkcje.
 \end{document}
