@@ -15,13 +15,23 @@ double fp(double x) {
 
 int main() {
     double A,B,c,d,e;
-    printf("Podaj a: "); scanf("%lf",&A);
-    printf("Podaj b: "); scanf("%lf",&B);
-
+    printf("Podaj liczbe a i b, takie ze 0 < a < b \n");
+    do{
+      printf("Podaj a: ");
+      scanf("%lf",&A);
+    }while(A <= 0);
+    do{
+      printf("Podaj b: ");
+      scanf("%lf",&B);
+    }while(B <= A);
     double a,b;
     int i;
     while(1) {
-        printf("Podaj epsilon: "); scanf("%lf",&e);
+        printf("Podaj epsilon, takie ze 0 < epsilon < 1\n");
+        do{
+          printf("Podaj epsilon: ");
+          scanf("%lf",&e);
+        }while(e <= 0 && e >= 1);
 
         // polowienia
         a = A;
