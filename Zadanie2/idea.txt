@@ -1,3 +1,0 @@
-Wolfram alpha mowi: ln(x) lx - 5 = ~3.69344135896064980432373934570016822
-program idea, podac a np. 3, b np. 5, e np. 0.001
-lub a = 0.00001 b = 10000 e = 0.001

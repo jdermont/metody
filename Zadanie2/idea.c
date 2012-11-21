@@ -17,7 +17,7 @@ int main() {
     double A,B,c,d,e,tmp=0;
     printf("Podaj liczbe a i b, takie ze 0 < a < b \n");
     do{
-      if(tmp = 1) printf("Podaj inne a i b.");
+      if(tmp == 1) printf("Podaj inne a i b.\n");
       do{
         printf("Podaj a: ");
         scanf("%lf",&A);
@@ -27,7 +27,7 @@ int main() {
         scanf("%lf",&B);
       }while(B <= A);
       tmp = 1;
-    }while(f(a) * f(b) >= 0);
+    } while(f(A) * f(B) >= 0);
     double a,b;
     int i;
     while(1) {
