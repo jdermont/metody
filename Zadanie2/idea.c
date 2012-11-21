@@ -14,16 +14,20 @@ double fp(double x) {
 }
 
 int main() {
-    double A,B,c,d,e;
+    double A,B,c,d,e,tmp=0;
     printf("Podaj liczbe a i b, takie ze 0 < a < b \n");
     do{
-      printf("Podaj a: ");
-      scanf("%lf",&A);
-    }while(A <= 0);
-    do{
-      printf("Podaj b: ");
-      scanf("%lf",&B);
-    }while(B <= A);
+      if(tmp = 1) printf("Podaj inne a i b.");
+      do{
+        printf("Podaj a: ");
+        scanf("%lf",&A);
+      }while(A <= 0);
+      do{
+        printf("Podaj b: ");
+        scanf("%lf",&B);
+      }while(B <= A);
+      tmp = 1;
+    }while(f(a) * f(b) >= 0);
     double a,b;
     int i;
     while(1) {
