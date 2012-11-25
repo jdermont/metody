@@ -101,7 +101,7 @@ Wejœcie
 \begin{itemize}
 \item $a$, liczba typu double, taka ¿e $a>0$; jeœli $a\leqslant 0$, to program zapyta ponownie
 \item $b$, liczba typu double, taka ¿e $b>a$; jeœli $b\leqslant a$, to program zapyta ponownie \
-jeœli $f(a)\cdot f(b)$ $<$ 0, to program ponownie zapyta o $a$ i $b$
+jeœli $f(a)\cdot f(b)$ $\geqslant$ 0, to program ponownie zapyta o $a$ i $b$
 \item $\epsilon$, liczba typu double, taka ¿e $0<\epsilon<1$, podawana w nieskoñczonej pêtli dopóki u¿ytkownik ``siê nie znudzi'';
  jeœli $\epsilon$ jest spoza przedzia³u $[0,1]$, program zapyta ponownie
 \end{itemize}
@@ -115,5 +115,26 @@ Wyjœcie
 \end{itemize}
 \small $^*$ jeœli $j == 100$ to $x_1$ nie jest pierwiastkiem, bo metoda Newtona sta³a siê rozbie¿na \ \\ \\
 \normalsize
-Program sk³ada siê tylko z jednego pliku $main.cpp$. Zawiera wszystkie potrzebne funkcje.
+Program sk³ada siê tylko z jednego pliku $main.c$. Zawiera wszystkie potrzebne funkcje.
+
+\section{Kod Ÿród³owy}
+\lstset{language=C,
+tabsize=1,
+basicstyle=\ttfamily\footnotesize,
+frame=shadowbox,
+breaklines=true,
+showstringspaces=false}
+\lstset{title=main.c}
+\lstinputlisting{main.c}
+
+\section{Przyk³adowe uruchomienia}
+
+\lstset{title=Przyk³ad 1}
+\lstinputlisting{example1.txt}
+\lstset{title=Przyk³ad 2}
+\lstinputlisting{example2.txt}
+\ \\
+\lstset{title=Przyk³ad 3}
+\lstinputlisting{example3.txt}
+
 \end{document}
