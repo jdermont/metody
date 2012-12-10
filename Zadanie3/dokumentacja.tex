@@ -1,0 +1,55 @@
+%& --translate-file=cp1250pl
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in,dvips]{geometry}
+
+
+\usepackage{polski}
+\usepackage[OT4]{fontenc}
+\usepackage{amsthm,amsmath,amsfonts,amssymb}
+
+\usepackage{verbatim}
+
+\usepackage{color}
+\usepackage{alltt}
+\usepackage{enumerate}
+\usepackage{url}
+\usepackage{listings}
+\lstset{language=C++,
+tabsize=1,
+basicstyle=\ttfamily\footnotesize,
+frame=shadowbox,
+breaklines=true,
+showstringspaces=false}
+
+\author{Marcin Horoszko, Rados³aw G³ombiowski, Jacek Dermont}
+\title{Dokumentacja do zadania 3.14}
+
+\newtheorem{tw}{Czêœæ}[section]
+\theoremstyle{definition}
+\newtheorem{defi}[tw]{}
+
+\begin{document}
+
+\maketitle
+
+\section{Zadanie 3.14}
+Zagadnienie ró¿niczkowe $xy' = (y - 2)y - x^4, y(1) = 3$ rozwi¹zaæ na przedziale $[1,3]$ metod¹ Eulera oraz udoskonalon¹ metod¹ Eulera, zwan¹ metod¹ Heuna.
+Wyniki porównaæ z rozwi¹zaniem dok³adnym $y(x) = x^2 + 2$.
+
+\section{Podstawowe pojêcia (TODO)}
+\begin{defi}[Równanie ró¿niczkowe]
+...
+\end{defi}
+\begin{defi}[Zagadnienie Cauchy'ego]
+Zagadnienie polegaj¹ce na znalezieniu konkretnej funkcji spe³niaj¹cej dane równanie ró¿niczkowe i warunek pocz¹tkowy. W przypadku równania stopnia
+pierwszego, warunkiem pocz¹tkowym bêdzie punkt, przez który powinien przechodziæ wykres szukanej funkcji. W przypadku równania stopnia drugiego, zagadnienie
+pocz¹tkowe zawieraæ bêdzie dodatkowo wartoœæ pierwszej pochodnej w danym punkcie i analogicznie, w przypadku równañ wy¿szego stopnia. \\
+TODO: podaæ przyk³ad
+\end{defi}
+\begin{defi}[Metoda Eulera]
+...
+\end{defi}
+\begin{defi}[Udoskonalona metoda Eulera - metoda Heuna]
+...
+\end{defi}
+\end{document}
