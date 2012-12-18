@@ -9,6 +9,7 @@
 
 \usepackage{verbatim}
 
+\usepackage{graphicx}
 \usepackage{color}
 \usepackage{alltt}
 \usepackage{enumerate}
@@ -62,7 +63,16 @@ Wykorzystujemy ten wzór to przybli¿ania wartoœci punktów. Zale¿nie od $h$, przyb
 Modyfikacja metody Eulera. Obliczamy $\Delta y$ za pomoc¹:
 $\mathbf{\Delta y = h\frac{f(x_n,y_n)+f(x_n+h,y_n+f(x_n,y_n)h)}{2}}$
 \end{defi}
-\ \\ \\
+\ \\ \ \\
+\section{Analiza przyk³adu}
+Dla du¿ych kroków $h$ b³¹d jest wzglêdnie du¿y. Jak siê okazuje, w tym przypadku krok $h = 0.1$ jest ``bardzo du¿y''. \\
+\includegraphics[width=168mm]{h01_out.png} \\ \\ \\
+Ju¿ jest lepiej dla kroku $h = 0.001$, jednak funkcja staje siê wyraŸnie rozbie¿na w po³owie przedzia³u. \\
+\includegraphics[width=168mm]{h0001_out.png} \\ \\ \\ \\ \\ \\ \\
+Krok $h$, co najwy¿ej $h = 0.00001$, wybrany doœwiadczalnie. Tutaj Metoda Eulera ju¿ mocno zbli¿a siê do równania dok³adnego,
+jednak wci¹¿ nie jest idealnie. \\
+\includegraphics[width=168mm]{h000001_out.png} \\
+Zatem wiêkszych kroków $h > 0.00001$ nie ma sensu wybieraæ.
 \section{Metoda numeryczna}
 U¿ytkownik pytany jest o krok $h$ z zakresu $(0,1)$. G³ówna czêœæ metody opiera siê na trzech pêtlach, ka¿da oblicza wartoœci: dok³adnym równaniem, metod¹ Eulera
 i metod¹ Heuna.
