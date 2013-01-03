@@ -21,7 +21,8 @@ int mod(double h) {
 
 int main() {
     printf("Program rozwiazujacy zagadnienie rozniczkowe xy' = (y-2)y - x^4, y(1) = 3 na przedziale [1,3]\n");
-    printf("metoda Eulera i Heuna oraz porownuje z rozwiazaniem dokladnym: y(x) = x*2 + 2.\n\n");
+    printf("metoda Eulera i Heuna oraz porownuje z rozwiazaniem dokladnym: y(x) = x^2 + 2. Najlepiej jest\n");
+    printf("podac krok h mniejszy od 0.00001.\n\n");
 
     // uzytkownik podaje h
     int temp = 0;
@@ -76,10 +77,10 @@ int main() {
     }
 
     // drukowanie na ekran
-    printf("     x   | dokladny | metoda eulera |        blad | metoda heuna |        blad \n");
-    printf("---------+----------+---------------+-------------+--------------+-------------\n");
+    printf("     x   | dokladny | metoda eulera |      blad | metoda heuna |      blad \n");
+    printf("---------+----------+---------------+-----------+--------------+-----------\n");
     for (j=0;j<n;j++) {
-        printf(" %.5lf | %8.5lf | %13.5lf | %11.5lf | %12.5lf | %11.5lf\n",x[j],normal[j],euler[j],fabs(normal[j]-euler[j]),heun[j],fabs(normal[j]-heun[j]));
+        printf(" %.5lf | %8.5lf | %13.5lf | %9.5lf | %12.5lf | %9.5lf\n",x[j],normal[j],euler[j],fabs(normal[j]-euler[j]),heun[j],fabs(normal[j]-heun[j]));
     }
 
     return 0;

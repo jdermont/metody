@@ -73,6 +73,7 @@ Krok $h$, co najwy¿ej $h = 0.00001$, wybrany doœwiadczalnie. Tutaj Metoda Eulera
 jednak wci¹¿ nie jest idealnie. \\
 \includegraphics[width=168mm]{h000001_out.png} \\
 Zatem wiêkszych kroków $h > 0.00001$ nie ma sensu wybieraæ.
+\ \\
 \section{Metoda numeryczna}
 U¿ytkownik pytany jest o krok $h$ z zakresu $(0,1)$. G³ówna czêœæ metody opiera siê na trzech pêtlach, ka¿da oblicza wartoœci: dok³adnym równaniem, metod¹ Eulera
 i metod¹ Heuna.
@@ -83,4 +84,44 @@ i metod¹ Heuna.
 \item tylko co któreœ $y_n$ jest drukowane na wyjœcie (by by³o maksymalnie 21 wartoœci na ekranie)
 \item na wyjœciu drukowany jest tak¿e b³¹d bezwglêdny wzglêdem rozwi¹zania dok³adnego
 \end{itemize}
+\ \\
+\section{Opis programu}
+Program zosta³ w ca³oœci napisany w jêzyku $C.$
+\\\\
+Wejœcie
+\begin{itemize}
+\item krok $h$, w przedziale $(0,1)$ (najlepiej $h < 0.00001$); w przypadku b³êdu program zapyta ponownie
+\end{itemize}
+\\\\
+Wyjœcie
+\begin{itemize}
+\item wydruk tabelki, który zawiera maksymalnie 21 wierszy; w tabelce znajduj¹ siê:
+\begin{itemize}
+\item wartoœæ wyliczona dok³adnym równaniem
+\item wartoœæ wyliczona metod¹ Eulera
+\item wartoœæ wyliczona metod¹ Heuna
+\item b³êdy bezglêdne poszczególnych metod wzglêdem rozwi¹zania dok³adnego
+\end{itemize}
+\end{itemize}
+Ca³oœæ programu umieszczona jest w jednym pliku $main.c$.
+\ \\
+\section{Kod Ÿród³owy}
+\lstset{language=C,
+tabsize=1,
+basicstyle=\ttfamily\footnotesize,
+frame=shadowbox,
+breaklines=true,
+showstringspaces=false}
+\lstset{title=main.c}
+\lstinputlisting{main.c}
+\ \\ \ \\ \ \\ \ \\ \ \\ \ \\ \ \\ \ \\ \ \\
+\section{Przyk³adowe uruchomienia}
+\lstset{title=Przyk³ad 1}
+\lstinputlisting{example1.txt}
+\ \\
+\lstset{title=Przyk³ad 2}
+\lstinputlisting{example2.txt}
+\ \\ \ \\ \ \\ \ \\ \ \\
+\lstset{title=Przyk³ad 3}
+\lstinputlisting{example3.txt}
 \end{document}
